@@ -17,3 +17,9 @@ if height > 145:
 else:
    print("you need to grow some more to ride.")
 # 5
+my_fav_numbers= {2,5,8}
+my_fav_numbers.update([0, 15])
+my_fav_numbers.pop()
+friend_fav_numbers= {6,1,9}
+our_fav_numbers = my_fav_numbers.union(friend_fav_numbers)
+print(our_fav_numbers)
