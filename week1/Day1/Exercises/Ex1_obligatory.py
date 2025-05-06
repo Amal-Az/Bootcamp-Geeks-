@@ -5,13 +5,13 @@ print (first)
 a= (99**3)*8
 print(a)
 # 3
-name= input("enter your name: ")
-if name == "amal":
-   print("ooh! we have the same name")
-else:
-   print("ooh! your name is so beautiful")
+# name= input("enter your name: ")
+# if name == "amal":
+#    print("ooh! we have the same name")
+# else:
+#    print("ooh! your name is so beautiful")
 # 4
-height= input(int("enter your height in centimeters: "))
+height= int(input("enter your height in centimeters: "))
 if height > 145:
    print("your tall is enough to ride.")
 else:
@@ -43,4 +43,9 @@ while "Pastrami sandwich" in sandwich_orders:
     sandwich_orders.remove("Pastrami sandwich")
 
 finished_sandwiches = []
+
+while sandwich_orders:
+    current_sandwich = sandwich_orders.pop(0)  
+    finished_sandwiches.append(current_sandwich)
+    print(f"I made your {current_sandwich}")
 
