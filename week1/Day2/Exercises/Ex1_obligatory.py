@@ -4,60 +4,60 @@ values = [10, 20, 30]
 combinaison = zip(keys, values)
 print(dict(combinaison))
 # 2
-# name= input("enter your name: ")
-# age= int(input("enter your age: "))
-# def ticket_price(age):
-#     if age <3:
-#         print("the ticket is free")
-#         return 0
-#     elif 3 <= age <= 12:
-#         print("the ticket is $10")
-#         return 10
-#     else:
-#          print ("the ticket is $15")
-#          return 15
+name= input("enter your name: ")
+age= int(input("enter your age: "))
+def ticket_price(age):
+    if age <3:
+        print("the ticket is free")
+        return 0
+    elif 3 <= age <= 12:
+        print("the ticket is $10")
+        return 10
+    else:
+         print ("the ticket is $15")
+         return 15
     
-# family = {"rick": 43, "beth": 13, "morty": 5, "summer": 8}
-# total_cost = 0
+family = {"rick": 43, "beth": 13, "morty": 5, "summer": 8}
+total_cost = 0
 
-# for name, age in family.items():
-#     price = ticket_price(age)
-#     print(f"{name} has to pay ${price}")
-#     total_cost += price
+for name, age in family.items():
+    price = ticket_price(age)
+    print(f"{name} has to pay ${price}")
+    total_cost += price
 
-# print(f"Total cost for the family is: ${total_cost}")
+print(f"Total cost for the family is: ${total_cost}")
 
 # 3
-# brand = {
-#     "name": "Zara",
-#     "creation_date": 1975,
-#     "creator_name": "Amancio Ortega Gaona",
-#     "type_of_clothes": ["men", "women", "children", "home"],
-#     "international_competitors": ["Gap", "H&M", "Benetton"],
-#     "number_stores": 7000,
-#     "major_color": {
-#         "France": "blue",
-#         "Spain": "red",
-#         "US": ["pink", "green"]
-#     }
-# }
+brand = {
+    "name": "Zara",
+    "creation_date": 1975,
+    "creator_name": "Amancio Ortega Gaona",
+    "type_of_clothes": ["men", "women", "children", "home"],
+    "international_competitors": ["Gap", "H&M", "Benetton"],
+    "number_stores": 7000,
+    "major_color": {
+        "France": "blue",
+        "Spain": "red",
+        "US": ["pink", "green"]
+    }
+}
 
-# brand["number_stores"] = 2
-# print("Zara's clients are:", ", ".join(brand["type_of_clothes"]))
-# brand["country_creation"] = "Spain"
-# if "international_competitors" in brand:
-#     brand["international_competitors"].append("Desigual")
-# del brand["creation_date"]
-# print(brand["international_competitors"][-1])
-# print(brand["major_color"]["US"])
-# print(len(brand))
-# print(brand.keys())
-# more_on_zara = {
-#     "creation_date": 1975,
-#     "number_stores": 10000
-# }
-# brand.update(more_on_zara)
-# print(brand["number_stores"])
+brand["number_stores"] = 2
+print("Zara's clients are:", ", ".join(brand["type_of_clothes"]))
+brand["country_creation"] = "Spain"
+if "international_competitors" in brand:
+    brand["international_competitors"].append("Desigual")
+del brand["creation_date"]
+print(brand["international_competitors"][-1])
+print(brand["major_color"]["US"])
+print(len(brand))
+print(brand.keys())
+more_on_zara = {
+    "creation_date": 1975,
+    "number_stores": 10000
+}
+brand.update(more_on_zara)
+print(brand["number_stores"])
 # ==> La méthode update() a écrasé la valeur précédente de number_stores qui était 2
 # avec la nouvelle valeur 10000 du dictionnaire more_on_zara
 
@@ -82,13 +82,13 @@ def user_number(number):
 user_number(65)
 
 # 6
-# def make_shirt(size= "L",text= "I love Python") :
-#     print(f"The size of the shirt is {size} and the text is {text}")
-# make_shirt("M", "Hi Geeks")
-# make_shirt()
-# make_shirt("S")
-# make_shirt("M", "Code like a hacker")
-# make_shirt (text= "I'm Python engineer",size= "L")
+def make_shirt(size= "L",text= "I love Python") :
+    print(f"The size of the shirt is {size} and the text is {text}")
+make_shirt("M", "Hi Geeks")
+make_shirt()
+make_shirt("S")
+make_shirt("M", "Code like a hacker")
+make_shirt (text= "I'm Python engineer",size= "L")
 
 # 7
 def get_random_temp():

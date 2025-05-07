@@ -13,3 +13,4 @@ for i in range(len(word)):
     if i == 0 or word[i] != word[i-1]:
        correct_word += word[i]
 print("This is the correct word => " + correct_word)
+
