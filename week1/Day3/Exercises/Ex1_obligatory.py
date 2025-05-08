@@ -26,8 +26,8 @@ class Dog:
         saut = self.height * 2
         print(f"{self.name} saute de {saut} cm de haut !")
 
-davids_dog = Dog("Rex", 50)
-sarahs_dog = Dog("poki", 35)
+davids_dog = Dog("roki", 50)
+sarahs_dog = Dog("rofix", 35)
 print(f"David's dog is called {davids_dog.name} is measure {davids_dog.height} cm .")
 davids_dog.bark()
 davids_dog.jump()
