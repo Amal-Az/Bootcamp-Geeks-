@@ -50,7 +50,6 @@ sara_pets = Pets(all_cats)
 
 sara_pets.walk()
 # 2
-
 class Dog:
     def _init_(self, name, age, weight):
         self.name = name
@@ -81,8 +80,6 @@ print(dog1.bark())
 print(dog2.run_speed())         
 print(dog3.fight(dog1))         
 print(dog2.fight(dog3))       
-
-
 # 3
 class dog :
     def _init_(self,name, age, weight):
