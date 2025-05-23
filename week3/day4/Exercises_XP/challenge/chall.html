@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title> Mad Libs</title>
+</head>
+<body>
+
+  <h1>Mad Libs</h1>
+
+  <form id="libform">
+    <label for="noun">Noun:</label><input type="text" id="noun"><br>
+    <label for="adjective">Adjective:</label><input type="text" id="adjective"><br>
+    <label for="person">Someone's Name:</label><input type="text" id="person"><br>
+    <label for="verb">Verb:</label><input type="text" id="verb"><br>
+    <label for="place">A place:</label><input type="text" id="place"><br>
+    <button type="submit" id="lib-button">Lib it!</button>
+  </form>
+
+  <button id="shuffle-button" style="display:none;">Shuffle Story</button>
+
+  <p><strong>Generated story:</strong> <span id="story"></span></p>
+
+  <script>
+    const form = document.getElementById("libform");
+    const shuffleBtn = document.getElementById("shuffle-button");
+    const storySpan = document.getElementById("story");
+
+    let inputs = {};
+    let storyTemplates = [];
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const noun = document.getElementById("noun").value.trim();
+      const adjective = document.getElementById("adjective").value.trim();
+      const person = document.getElementById("person").value.trim();
+      const verb = document.getElementById("verb").value.trim();
+      const place = document.getElementById("place").value.trim();
+
+      if (!noun || !adjective || !person || !verb || !place) {
+        alert("Please fill out all fields!");
+        return;
+      }
+
+      inputs = { noun, adjective, person, verb, place };
+
+      storyTemplates = [
+        `${person} went to ${place} with a ${adjective} ${noun} to ${verb}.`,
+        `In ${place}, ${person} saw a ${noun} that could ${verb} really ${adjective}ly!`,
+        `Why did ${person} bring a ${adjective} ${noun} to ${place}? Just to ${verb}!`
+      ];
+
+      displayRandomStory();
+      shuffleBtn.style.display = "inline";
+    });
+
+    shuffleBtn.addEventListener("click", displayRandomStory);
+
+    function displayRandomStory() {
+      const randomIndex = Math.floor(Math.random() * storyTemplates.length);
+      const story = storyTemplates[randomIndex];
+      storySpan.textContent = story;
+    }
+  </script>
+
+</body>
+</html>
