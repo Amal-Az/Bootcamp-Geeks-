@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="stl.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">TO-DO LIST</div>
+        
+        <div class="form-container">
+            <form id="todoForm" class="input-group">
+                <input type="text" id="taskInput" placeholder="new task" />
+                <button type="submit" id="addBtn">ADD</button>
+            </form>
+        </div>
+        
+        <div class="listTasks" id="listTasks"></div>
+        
+        <div class="clear-btn">
+            <button onclick="clearAllTasks()">Clear</button>
+        </div>
+    </div>
+
+    <script src="scpt.js"></script>
+</body>
+</html>
