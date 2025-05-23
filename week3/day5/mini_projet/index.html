@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coloring Squares</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+    }
+    .container {
+      display: flex;
+      border: 1px solid #333;
+      background-color: #888686;
+    }
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(3, 40px);
+      gap: 2px 7px;
+      padding: 10px;
+      border-right: 2px solid #7b7a7a;
+    }
+    .color {
+      width: 40px;
+      height: 50px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+    .clear-btn {
+      grid-column: span 3;
+      padding: 10px;
+      text-align: center;
+      background-color: #eee;
+      border: 1px solid #353131;
+      margin-bottom: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 13px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(50, 12px);
+      grid-template-rows: repeat(30, 12px);
+      gap: 2px;
+      padding: 10px;
+    }
+    .cell {
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="palette">
+      <div class="clear-btn" onclick="clearGrid()">Clear</div>
+      <div class="color" style="background:red;" onclick="setColor('red')"></div>
+      <div class="color" style="background:orange;" onclick="setColor('orange')"></div>
+      <div class="color" style="background:gold;" onclick="setColor('gold')"></div>
+      <div class="color" style="background:yellow;" onclick="setColor('yellow')"></div>
+      <div class="color" style="background:yellowgreen;" onclick="setColor('yellowgreen')"></div>
+      <div class="color" style="background:lightgreen;" onclick="setColor('lightgreen')"></div>
+      <div class="color" style="background:green;" onclick="setColor('green')"></div>
+      <div class="color" style="background:turquoise;" onclick="setColor('turquoise')"></div>
+      <div class="color" style="background:cyan;" onclick="setColor('cyan')"></div>
+      <div class="color" style="background:skyblue;" onclick="setColor('skyblue')"></div>
+      <div class="color" style="background:deepskyblue;" onclick="setColor('deepskyblue')"></div>
+      <div class="color" style="background:blue;" onclick="setColor('blue')"></div>
+      <div class="color" style="background:navy;" onclick="setColor('navy')"></div>
+      <div class="color" style="background:purple;" onclick="setColor('purple')"></div>
+      <div class="color" style="background:darkmagenta;" onclick="setColor('darkmagenta')"></div>
+      <div class="color" style="background:violet;" onclick="setColor('violet')"></div>
+      <div class="color" style="background:pink;" onclick="setColor('pink')"></div>
+      <div class="color" style="background:lightgray;" onclick="setColor('lightgray')"></div>
+      <div class="color" style="background:gray;" onclick="setColor('gray')"></div>
+      <div class="color" style="background:black;" onclick="setColor('black')"></div>
+      <div class="color" style="background:white;" onclick="setColor('white')"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html
+
