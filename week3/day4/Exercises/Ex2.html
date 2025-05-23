@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Exercise</title>
+</head>
+<body>
+
+  <form id="userForm">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="firstname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lastname"><br><br>
+    <input type="submit" value="Submit" id="submit">
+  </form> 
+
+  <ul class="usersAnswer"></ul>
+
+  <script>
+    const form = document.getElementById('userForm');
+    console.log("Form:", form);
+
+    const inputFname = document.getElementById('fname');
+    const inputLname = document.getElementById('lname');
+    console.log("First Name Input (by ID):", inputFname);
+    console.log("Last Name Input (by ID):", inputLname);
+
+    const inputByNameF = document.getElementsByName('firstname')[0];
+    const inputByNameL = document.getElementsByName('lastname')[0];
+    console.log("First Name Input (by name):", inputByNameF);
+    console.log("Last Name Input (by name):", inputByNameL);
+
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from refreshing the page
+
+      const firstNameValue = inputFname.value.trim();
+      const lastNameValue = inputLname.value.trim();
+
+      // Check if inputs are not empty
+      if (firstNameValue === '' || lastNameValue === '') {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      const ul = document.querySelector('.usersAnswer');
+      ul.innerHTML = ""; 
+
+      const li1 = document.createElement('li');
+      li1.textContent = firstNameValue;
+      ul.appendChild(li1);
+
+      const li2 = document.createElement('li');
+      li2.textContent = lastNameValue;
+      ul.appendChild(li2);
+    });
+  </script>
+
+</body>
+</html>

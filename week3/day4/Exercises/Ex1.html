@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Exercise</title>
+  <style>
+    /* BONUS: fade-out animation */
+    .fade-out {
+      animation: fadeOut 2s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <h1> Some Facts </h1>
+    <h2> The Chocolate </h2>
+    <h3> History of the chocolate </h3>
+    <p> Chocolate is made from tropical Theobroma cacao tree seeds. 
+      Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+    <p> After the European discovery of the Americas, chocolate became very popular in the wider world, and its demand exploded. </p>
+    <p> Chocolate has since become a popular food product that millions enjoy every day, 
+      thanks to its unique, rich, and sweet taste.</p> 
+    <p> But what effect does eating chocolate have on our health?</p> 
+  </article>
+
+  <button id="boldBtn">Make all paragraph text bold</button>
+
+  <script>
+    const titleH1 = document.querySelector('h1');
+    console.log(titleH1);
+
+    const article = document.querySelector('article');
+    const paragraphs = article.querySelectorAll('p');
+    article.removeChild(paragraphs[paragraphs.length - 1]);
+
+    const titleH2 = document.querySelector('h2');
+    titleH2.addEventListener('click', () => {
+      titleH2.style.backgroundColor = 'red';
+    });
+
+    const titleH3 = document.querySelector('h3');
+    titleH3.addEventListener('click', () => {
+      titleH3.style.display = 'none';
+    });
+
+    const boldButton = document.getElementById('boldBtn');
+    boldButton.addEventListener('click', () => {
+      const allParagraphs = document.querySelectorAll('article p');
+      allParagraphs.forEach(p => {
+        p.style.fontWeight = 'bold';
+      });
+    });
+
+    // BONUS 1 and 2: Change h1 font size to random value on hover
+    titleH1.addEventListener('mouseover', () => {
+      const randomSize = Math.floor(Math.random() * 101); // 0 to 100
+      titleH1.style.fontSize = `${randomSize}px`;
+    });
+
+    // Fade out second paragraph on hover
+    const secondParagraph = paragraphs[1];
+    secondParagraph.addEventListener('mouseover', () => {
+      secondParagraph.classList.add('fade-out');
+    });
+  </script>
+</body>
+</html>
