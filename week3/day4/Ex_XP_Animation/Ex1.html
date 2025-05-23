@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    p {
+      background: yellow;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <button id="clear">Clear Interval</button>
+
+  <script>
+      //Part I: setTimeout with alert("Hello World")
+  setTimeout(() => {
+    alert("Hello World");
+  }, 2000);
+
+  // Part II: setTimeout to add <p>Hello World</p> in the
+  setTimeout(() => {
+    const container = document.getElementById('container');
+    const p = document.createElement('p');
+    p.textContent = "Hello World";
+    container.appendChild(p);
+  }, 2000);
+
+  // Part III: setInterval to add a paragraph every 2 seconds, then clear after 5 or on button click
+  const container = document.getElementById("container");
+  const button = document.getElementById("clear");
+
+  let count = 0;
+
+  const intervalId = setInterval(() => {
+     if (count >= 5) {
+      clearInterval(intervalId);
+      return;
+  }
+
+   const p = document.createElement("p");
+   p.textContent = "Hello World";
+   container.appendChild(p);
+   count++;
+}, 2000);
+
+  // Clear interval when the button is clicked
+  button.addEventListener("click", () => {
+    clearInterval(intervalId);
+});
+  </script>
+</body>
+</html>
