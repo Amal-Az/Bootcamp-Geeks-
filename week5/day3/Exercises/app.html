@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Random Giphy Search</title>
+  <style>
+    .gif-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .gif-container img {
+      max-width: 200px;
+      margin-right: 10px;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Search Random Giphy</h1>
+  <form id="gifForm">
+    <input type="text" id="searchInput" placeholder="Enter category..." required />
+    <button type="submit">Search</button>
+  </form>
+
+  <button id="deleteAllBtn" style="margin-top: 20px;">DELETE ALL</button>
+
+  <div id="gifList"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
