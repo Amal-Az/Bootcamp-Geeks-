@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulaire JSON</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 10px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    label {
+      display: none; /* on masque les labels pour garder juste les inputs alignés */
+    }
+
+    input[type="text"] {
+      flex: 1; /* même taille pour les 2 champs */
+      padding: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      padding: 8px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      height: 38px; /* hauteur alignée avec les champs */
+      flex-shrink: 0; /* ne rétrécit pas */
+    }
+
+    #output {
+      margin-top: 30px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="myForm">
+    <input type="text" id="firstName" name="firstName" placeholder="Nom" required />
+    <input type="text" id="lastName" name="lastName" placeholder="Prénom" required />
+    <input type="submit" value="Send" />
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const data = {
+        Name: form.firstName.value.trim(),     // "Name" avec majuscule
+        lastName: form.lastName.value.trim()
+      };
+
+      output.textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+
+</body>
+</html>
