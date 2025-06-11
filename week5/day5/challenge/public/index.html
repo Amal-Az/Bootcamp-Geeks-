@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emoji Game</title>
+</head>
+<body>
+  <h1>🎯 Emoji Guessing Game</h1>
+  <div id="game">
+    <p id="emoji">🧐</p>
+    <form id="guess-form"></form>
+    <p id="feedback"></p>
+    <p id="score">Score: 0</p>
+  </div>
+
+  <script>
+    let correctAnswer = '';
+
+    async function loadQuestion() {
+      const res = await fetch('/api/question');
+      const data = await res.json();
+      correctAnswer = data.correct;
+
+      document.getElementById('emoji').textContent = data.emoji;
+
+      const form = document.getElementById('guess-form');
+      form.innerHTML = '';
+      data.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.textContent = option;
+        btn.type = 'submit';
+        btn.dataset.value = option;
+        form.appendChild(btn);
+      });
+    }
+
+    document.getElementById('guess-form').addEventListener('click', async (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        e.preventDefault();
+        const guess = e.target.dataset.value;
+        const res = await fetch('/api/guess', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ guess, correct: correctAnswer })
+        });
+        const result = await res.json();
+        document.getElementById('feedback').textContent = result.result === 'correct' ? '✅ Correct!' : '❌ Incorrect!';
+        document.getElementById('score').textContent = `Score: ${result.score}`;
+        loadQuestion();
+      }
+    });
+
+    loadQuestion();
+  </script>
+</body>
+</html>
