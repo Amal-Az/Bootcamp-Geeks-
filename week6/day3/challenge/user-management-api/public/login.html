@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 400px;
+    }
+    .form-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    label {
+      width: 100px;
+    }
+    input {
+      flex: 1;
+      padding: 5px;
+    }
+    button {
+      width: fit-content;
+      padding: 8px 16px;
+    }
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="loginForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+    </div>
+    <button type="submit" id="submitBtn" disabled>Login</button>
+  </form>
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const inputs = form.querySelectorAll('input');
+    const message = document.getElementById('message');
+
+    function checkInputs() {
+      const allFilled = [...inputs].every(input => input.value.trim() !== '');
+      submitBtn.disabled = !allFilled;
+    }
+
+    inputs.forEach(input => input.addEventListener('input', checkInputs));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = form.username.value.trim();
+      const data = {
+        username,
+        password: form.password.value.trim()
+      };
+
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.text();
+
+      if (res.ok && result === 'login') {
+        message.textContent = `Hi "${username}", welcome back again`;
+      } else {
+        message.textContent = result;
+      }
+
+      if (res.ok) {
+        form.reset();
+        submitBtn.disabled = true;
+      }
+    });
+  </script>
+</body>
+</html>

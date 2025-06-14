@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "amal",
+    "lastName": "azour",
+    "email": "amale.azour@gmail.com",
+    "username": "amalaz",
+    "password": "$2b$10$azaWmikcMznhl7Ufoej2/.8jaS9ei.5npBgVRH1WSQ3Cw6HEpNxbq"
+  },
+  {
+    "id": 1749933572454,
+    "name": "zineb",
+    "lastName": "dounit",
+    "email": "zineb.dounit@gmail.com",
+    "username": "zinebDt",
+    "password": "$2b$10$2CWT5bSmqyq2sGhJxxl2wuVfbmz1j.quTfTlI.X5eOKuQhcm2mkTi"
+  },
+  {
+    "id": 1749933870697,
+    "name": "hiba",
+    "lastName": "jehdaoui",
+    "email": "hiba.jehdaoui@gmail.com",
+    "username": "hiba12",
+    "password": "$2b$10$wOu5WaUwnkduQbGB70YcReBuIc0tXtMo/zJLUjTqJjBNcDhMwKsbC"
+  }
+]

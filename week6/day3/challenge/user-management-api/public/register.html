@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 400px;
+    }
+    .form-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    label {
+      width: 100px;
+    }
+    input {
+      flex: 1;
+      padding: 5px;
+    }
+    button {
+      width: fit-content;
+      padding: 8px 16px;
+    }
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Register</h2>
+  <form id="registerForm">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" id="name" required />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+    </div>
+    <button type="submit" id="submitBtn" disabled>Register</button>
+  </form>
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const inputs = form.querySelectorAll('input');
+    const message = document.getElementById('message');
+
+    function checkInputs() {
+      const allFilled = [...inputs].every(input => input.value.trim() !== '');
+      submitBtn.disabled = !allFilled;
+    }
+
+    inputs.forEach(input => input.addEventListener('input', checkInputs));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        name: form.name.value.trim(),
+        lastName: form.lastName.value.trim(),
+        email: form.email.value.trim(),
+        username: form.username.value.trim(),
+        password: form.password.value.trim()
+      };
+
+      const res = await fetch('/register', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.text();
+      message.textContent = result;
+      if (res.ok) {
+        form.reset();
+        submitBtn.disabled = true;
+      }
+    });
+  </script>
+</body>
+</html>
